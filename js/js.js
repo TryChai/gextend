@@ -5,6 +5,7 @@ let url = window.location.href
 let myUrl = ['https://juejin.cn/post/6945796799860834340','https://juejin.cn/post/6963975875280781326',
     'https://juejin.cn/post/6976611660161089543','https://juejin.cn/post/6979127576409145374',
     'https://juejin.cn/post/7012543084923715591',
+	'https://juejin.cn/post/7110986394710376462',
     'https://juejin.cn/post/6994241743688302600','https://juejin.cn/post/7095649611238342663']
 let time = Math.floor(Math.random()* 30 + 20) *1000
 if(myUrl.includes(url)){

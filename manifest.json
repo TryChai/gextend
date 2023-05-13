@@ -18,7 +18,9 @@
         "page":"try.html"
     }, 
      "content_scripts": [{
-         "matches":["https://blog.csdn.net/*","http://blog.csdn.net/*","http://www.zhihu.com/*","https://www.zhihu.com/*","http://zhuanlan.zhihu.com/*","https://zhuanlan.zhihu.com/*","https://juejin.im/*","https://juejin.cn/*"],  
+         "matches":["https://blog.csdn.net/*","http://blog.csdn.net/*","http://www.zhihu.com/*",
+         "https://www.zhihu.com/*","http://zhuanlan.zhihu.com/*","https://zhuanlan.zhihu.com/*",
+         "https://juejin.im/*","https://juejin.cn/*","https://www.baidu.com/*"],  
          "js": [ "js/js.js"],   
          "run_at": "document_start"
     }] ,

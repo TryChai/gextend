@@ -1,5 +1,4 @@
 let {log} = console
-// log('gg-test')
 let host = window.location.host
 let url = window.location.href
 let myUrl = ['https://juejin.cn/post/6945796799860834340','https://juejin.cn/post/6963975875280781326',
@@ -24,39 +23,43 @@ function addLoadEvent(func){   // 多个window.onload共用的封装函数
         } 
     } 
 }
-function Copy(){
-	document.body.addEventListener("copy", (e) => {
-		//  阻止默认行为
-		e.preventDefault();
-		// 获取当前网址和复制的内容
-		let url = window.location.href;
-		let copyText =  window.getSelection().toString();
-		// 整合
-		// 将文本添加到剪切板中
-		e.clipboardData.setData('text/plain',copyText);
-	});
-}
-// addLoadEvent(Copy)
- document.addEventListener("DOMContentLoaded", Copy);
-if(host == 'blog.csdn.net'){
+javascript:!function () {
+    function t(e) {
+        e.stopPropagation(), e.stopImmediatePropagation && e.stopImmediatePropagation()
+    }
+
+    document.querySelectorAll("*").forEach(e => {
+        "none" === window.getComputedStyle(e, null).getPropertyValue("user-select") && e.style.setProperty("user-select", "text", "important")
+    }), ["copy", "cut", "contextmenu", "selectstart", "mousedown", "mouseup", "mousemove", "keydown", "keypress", "keyup"].forEach(function (e) {
+        document.documentElement.addEventListener(e, t, {capture: !0})
+    })
+}();
+
+
+
 	function csdn(){
+		document.querySelector('#csdn-toolbar') && document.querySelector('#csdn-toolbar').remove()
+		document.querySelector('#aswift_1') && document.querySelector('#aswift_1').remove()
+		document.querySelector('#aswift_2') && document.querySelector('#aswift_2').remove()
+		document.querySelector('#aswift_3') && document.querySelector('#aswift_3').remove()
+		document.querySelector('#aswift_4') && document.querySelector('#aswift_4').remove()
+		document.querySelector('#aswift_5') && document.querySelector('#aswift_5').remove()
+		document.querySelector('.signin') && document.querySelector('.signin').remove()
 		document.querySelector('.passport-login-container') && document.querySelector('.passport-login-container').remove()
+		document.querySelector('.hide-preCode-box') && document.querySelector('.hide-preCode-box').remove()
 		document.querySelector('.hide-article-box') && document.querySelector('.hide-article-box').remove()
 		document.querySelector('#article_content') && (document.querySelector('#article_content').style.cssText='overflow: visible;')
 		document.querySelectorAll('pre').forEach(pre=>{
-			pre.style.cssText = 'user-select:auto !important'
-			pre.style.cssText = '-webkit-user-select:auto !important'
+			pre.style.cssText = 'user-select:auto !important;-webkit-user-select:auto !important;height:auto !important;'
 		})
 		document.querySelectorAll('code').forEach(code=>{
-			code.style.cssText = 'user-select:auto !important'
-			code.style.cssText = '-webkit-user-select:auto !important'
+			code.style.cssText = 'user-select:auto !important;-webkit-user-select:auto !important'
 		})
 		requestAnimationFrame(csdn)
 	}
 	 document.addEventListener("DOMContentLoaded", csdn);
 	// addLoadEvent(csdn)
-	
-}
+
 if(host == 'www.zhihu.com' || host == 'zhuanlan.zhihu.com'){
 	function Zhihu(){
 		document.querySelector('.Modal-wrapper') && document.querySelector('.Modal-wrapper').remove()

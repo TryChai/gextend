@@ -51,7 +51,7 @@ javascript:!function () {
 		document.querySelector('.hide-article-box') && document.querySelector('.hide-article-box').remove()
 		document.querySelector('#article_content') && (document.querySelector('#article_content').style.cssText='overflow: visible;')
 		document.querySelectorAll('pre').forEach(pre=>{
-			pre.style.cssText = 'user-select:auto !important;-webkit-user-select:auto !important;height:auto !important;'
+			pre.style.cssText = 'user-select:auto !important;-webkit-user-select:auto !important;height:auto !important;max-height:100vh !important'
 		})
 		document.querySelectorAll('code').forEach(code=>{
 			code.style.cssText = 'user-select:auto !important;-webkit-user-select:auto !important'

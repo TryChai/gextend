@@ -49,12 +49,24 @@ javascript:!function () {
 		document.querySelector('.passport-login-container') && document.querySelector('.passport-login-container').remove()
 		document.querySelector('.hide-preCode-box') && document.querySelector('.hide-preCode-box').remove()
 		document.querySelector('.hide-article-box') && document.querySelector('.hide-article-box').remove()
+		document.querySelector('div.hide-article-box') && document.querySelector('div.hide-article-box').remove()
+		
 		document.querySelector('#article_content') && (document.querySelector('#article_content').style.cssText='overflow: visible;')
 		document.querySelectorAll('pre').forEach(pre=>{
-			pre.style.cssText = 'user-select:auto !important;-webkit-user-select:auto !important;height:auto !important;'
+			pre.style.cssText = 'user-select:auto !important;-webkit-user-select:auto !important;height:auto !important;max-height:100% !important;margin-bottom:20px !important;'
 		})
 		document.querySelectorAll('code').forEach(code=>{
-			code.style.cssText = 'user-select:auto !important;-webkit-user-select:auto !important'
+			code.style.cssText = 'user-select:auto !important;-webkit-user-select:auto !important;height:auto !important;max-height:100% !important;margin-bottom:20px !important;'
+		})
+		document.querySelector('main div.blog-content-box pre.set-code-show') ? document.querySelector('main div.blog-content-box pre.set-code-show').style.cssText = "height:100% !important" : null
+		
+		document.querySelectorAll(".hide-article-box").forEach(code=>{
+			code.style.cssText = "display:none !important"
+			code.remove()
+		})
+		document.querySelectorAll(".hide-preCode-box").forEach(code=>{
+			code.style.cssText = "display:none !important"
+			code.remove()
 		})
 		requestAnimationFrame(csdn)
 	}

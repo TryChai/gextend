@@ -34,9 +34,38 @@ javascript:!function () {
     }), ["copy", "cut", "contextmenu", "selectstart", "mousedown", "mouseup", "mousemove", "keydown", "keypress", "keyup"].forEach(function (e) {
         document.documentElement.addEventListener(e, t, {capture: !0})
     })
+	HTMLElement.prototype.pressKey = function(e) {
+		var doc = document.createEvent("UIEvents");
+		doc.keyCode = e;
+		doc.initEvent("keydown", true, true);
+		this.dispatchEvent(doc);
+	}
+	document.onmouseup = function(){
+		let text = selectText()
+		if(text !== '' ){
+			document.body.pressKey(17);
+			document.body.pressKey(67);
+		}
+	};  
+	document.addEventListener("keydown", function(e) {
+		if(e.ctrlKey&&e.keyCode===70){
+			document.body.pressKey(17);
+			document.body.pressKey(86);
+		  }
+	})
+	
+	function selectText(){
+		if(document.Selection){       
+			//ie浏览器
+			return document.selection.createRange().text;     	 
+		}else{    
+			//标准浏览器
+			return window.getSelection().toString();	 
+		}	 
+	}
 }();
 
-
+	
 
 	function csdn(){
 		document.querySelector('#csdn-toolbar') && document.querySelector('#csdn-toolbar').remove()

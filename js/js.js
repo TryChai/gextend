@@ -87,7 +87,7 @@ javascript:!function () {
 		document.querySelectorAll('code').forEach(code=>{
 			code.style.cssText = 'user-select:auto !important;-webkit-user-select:auto !important;height:auto !important;max-height:100% !important;margin-bottom:20px !important;'
 		})
-		document.querySelector('main div.blog-content-box pre.set-code-show') ? document.querySelector('main div.blog-content-box pre.set-code-show').style.cssText = "height:100% !important" : null
+		document.querySelector('main div.blog-content-box pre.set-code-show') ? document.querySelector('main div.blog-content-box pre.set-code-show').style.cssText = "user-select:auto !important;-webkit-user-select:auto !important;height:100% !important" : null
 
 		document.querySelectorAll(".hide-article-box").forEach(code=>{
 			code.style.cssText = "display:none !important"
